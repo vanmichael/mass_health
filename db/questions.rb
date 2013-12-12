@@ -14,9 +14,9 @@ TownHealthRecord.order('per_capita_income_year_2000 limit 3')
 #Answer 3: Monroe, Lawrence, Chelsea, Springfield, Gosnold
 
 #Question 3: Omitting Boston, Becket, and Beverly, what town has the highest percentage of teen births?
-TownHealthRecord.order('per_teen_births_2005_2008 desc limit 1')
+TownHealthRecord.where.not(geography: ['Boston','Becket','Beverly']).order('per_teen_births_2005_2008 desc limit 1')
 #Answer 3: Holyoke
 
 #Question 4: Omitting Boston, what town has the highest number of infant mortalities?
-TownHealthRecord.order('infant_mortality_rate_deaths_per_1000_live_births_2005_2008 desc limit 1')
+TownHealthRecord.where.not(geography: ['Boston']).order('infant_mortality_rate_deaths_per_1000_live_births_2005_2008 desc limit 1')
 #Answer 4: Gardner
